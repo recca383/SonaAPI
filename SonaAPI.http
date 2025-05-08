@@ -1,0 +1,6 @@
+@SonaAPI_HostAddress = http://localhost:5011
+
+GET {{SonaAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
