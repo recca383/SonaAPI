@@ -17,7 +17,6 @@
   <ItemGroup>
     <Folder Include="HTTP\Response\" />
     <Folder Include="HTTP\Request\" />
-    <Folder Include="Models\" />
     <Folder Include="ML\" />
     <Folder Include="Repository\Contracts\" />
     <Folder Include="Repository\" />
