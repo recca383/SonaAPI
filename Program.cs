@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using SonaAPI.Data;
+
 namespace SonaAPI
 {
     public class Program
@@ -8,11 +11,16 @@ namespace SonaAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            DotNetEnv.Env.Load();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddDbContext<MBTIDataContext>(o=>
+            {
+                o.UseNpgsql(Environment.GetEnvironmentVariable("MBTIDbContext"));
+            });
 
             var app = builder.Build();
 

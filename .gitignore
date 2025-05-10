@@ -364,3 +364,7 @@ FodyWeavers.xsd
 
 # DataSet folder for ML
 DataSet/
+Migrations/
+
+# Env file
+.env
