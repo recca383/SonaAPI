@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="HTTP\Response\" />
     <Folder Include="HTTP\Request\" />
     <Folder Include="ML\" />
     <Folder Include="Repository\Contracts\" />
