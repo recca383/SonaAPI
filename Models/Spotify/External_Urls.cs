@@ -2,6 +2,6 @@
 {
     public class External_Urls
     {
-        public string spotify { get; set; }
+        public string? spotify { get; set; }
     }
 }

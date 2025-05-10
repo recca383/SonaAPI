@@ -2,8 +2,8 @@
 {
     public class Image
     {
-        public string url { get; set; }
-        public int height { get; set; }
-        public int width { get; set; }
+        public required string url { get; set; }
+        public required int? height { get; set; }
+        public required int? width { get; set; }
     }
 }

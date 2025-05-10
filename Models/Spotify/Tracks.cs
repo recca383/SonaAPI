@@ -2,12 +2,14 @@
 {
     public class Tracks
     {
-        public string href { get; set; }
-        public int limit { get; set; }
-        public string next { get; set; }
-        public int offset { get; set; }
-        public string previous { get; set; }
-        public int total { get; set; }
-        public Item[] items { get; set; }
+        public required string href { get; set; }
+        public required int limit { get; set; }
+        public required string next { get; set; }
+        public required int offset { get; set; }
+        public required string previous { get; set; }
+        public required int total { get; set; }
+        public required Item[] items { get; set; }
+        public string? type { get; set; }
+        public string? uri { get; set; }
     }
 }

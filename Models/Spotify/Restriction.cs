@@ -2,6 +2,6 @@
 {
     public class Restrictions
     {
-        public string reason { get; set; }
+        public string? reason { get; set; }
     }
 }
