@@ -29,8 +29,6 @@
   <ItemGroup>
     <Folder Include="HTTP\Request\" />
     <Folder Include="ML\" />
-    <Folder Include="Repository\Contracts\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
 </Project>
