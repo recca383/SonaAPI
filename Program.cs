@@ -1,6 +1,9 @@
 
 using Microsoft.EntityFrameworkCore;
 using SonaAPI.Data;
+using SonaAPI.Models.Spotify;
+using SonaAPI.Repository;
+using SonaAPI.Repository.Contracts;
 
 namespace SonaAPI
 {
@@ -21,6 +24,10 @@ namespace SonaAPI
             {
                 o.UseNpgsql(Environment.GetEnvironmentVariable("MBTIDbContext"));
             });
+
+            builder.Services.AddScoped<ISpotifyContract,SpotifyRepository>();
+
+            builder.Services.AddHttpClient<SpotifyRepository>();
 
             var app = builder.Build();
 
