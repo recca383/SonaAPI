@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SonaAPI.Models;
 using SonaAPI.Repository;
+using SonaAPI.Repository.Contracts;
 
 namespace SonaAPI.Controllers
 {
@@ -8,22 +10,27 @@ namespace SonaAPI.Controllers
     [ApiController]
     public class MBTIController : ControllerBase
     {
-        private readonly SpotifyRepository spotifyRepository;
+        private readonly ISpotifyContract spotifyRepository;
+        private readonly IMBTIContract mbtiRepository;
 
-        public MBTIController(SpotifyRepository spotifyRepository)
+        public MBTIController(ISpotifyContract spotifyRepository
+                            , IMBTIContract mbtiRepository)
         {
             this.spotifyRepository = spotifyRepository;
+            this.mbtiRepository = mbtiRepository;
         }
 
-        [HttpGet("{playlistId}")]
-        public async Task<IActionResult> GetPlaylist(string playlistId)
+        [HttpPost]
+        public async Task<IActionResult> GetPlaylist([FromBody]MBTI mbti)
         {
-            var accessToken = await spotifyRepository.GetAccessTokenAsync();
+            var playlistID = await mbtiRepository.GetPlaylistID(mbti);
 
-            var result = await spotifyRepository.GetPlaylist(playlistId, accessToken);
+            //var accessToken = await spotifyRepository.GetAccessTokenAsync();
 
-            if(result != null)
-                return Ok(result);
+            //var result = await spotifyRepository.GetPlaylist(playlistId, accessToken);
+
+            if (playlistID != null)
+                return Ok(playlistID);
 
             return NotFound();
         }

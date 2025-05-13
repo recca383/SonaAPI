@@ -25,7 +25,8 @@ namespace SonaAPI
                 o.UseNpgsql(Environment.GetEnvironmentVariable("MBTIDbContext"));
             });
 
-            builder.Services.AddScoped<ISpotifyContract,SpotifyRepository>();
+            builder.Services.AddScoped<ISpotifyContract, SpotifyRepository>();
+            builder.Services.AddScoped<IMBTIContract, MBTIRepository>();
 
             builder.Services.AddHttpClient<SpotifyRepository>();
 
