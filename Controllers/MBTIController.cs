@@ -25,12 +25,12 @@ namespace SonaAPI.Controllers
         {
             var playlistID = await mbtiRepository.GetPlaylistID(mbti);
 
-            //var accessToken = await spotifyRepository.GetAccessTokenAsync();
+            var accessToken = await spotifyRepository.GetAccessTokenAsync();
 
-            //var result = await spotifyRepository.GetPlaylist(playlistId, accessToken);
+            var result = await spotifyRepository.GetPlaylist(playlistID, accessToken);
 
-            if (playlistID != null)
-                return Ok(playlistID);
+            if (result != null)
+                return Ok(result);
 
             return NotFound();
         }
