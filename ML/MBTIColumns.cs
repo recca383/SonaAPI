@@ -5,8 +5,8 @@ namespace SonaAPI.ML
     public class MBTIColumns
     {
         // Playlist ID
-        [LoadColumn(2)]
-        public required string Label { get; set; }
+        [LoadColumn(3)]
+        public string? Label { get; set; }
         // MBTI 4 letter Code 
         [LoadColumn(0)]
         public required string MBTI { get; set; }

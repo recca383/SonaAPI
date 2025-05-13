@@ -4,7 +4,7 @@ namespace SonaAPI.ML
 {
     public class MBTIPrediction
     {
-        [ColumnName("playlist_id")]
+        [ColumnName("PredictedLabel")]
         public string? playlist_id { get; set; }
     }
 }
