@@ -15,9 +15,10 @@ namespace SonaAPI.Repository
             var context = new MLContext();
             string filename = mbti.Mbti.Trim().ToUpper() +"_df.csv";
 
+            
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Dataset", filename);
 
-            
+            // Add Try Catch (File IO)
             var data = context.Data.LoadFromTextFile<MBTIColumns>
                 (filePath
                 , separatorChar: ','
@@ -50,7 +51,6 @@ namespace SonaAPI.Repository
             MBTIColumns topredict = new MBTIColumns()
             {
                 MBTI = mbti.Mbti,
-                function_pair = mbti.Function_pair,
                 danceability_mean = mbti.Danceablitiy,
                 liveness_mean = mbti.Liveliness,
                 valence_mean = mbti.Valance,

@@ -11,9 +11,6 @@ namespace SonaAPI.ML
         [LoadColumn(0)]
         public required string MBTI { get; set; }
 
-        [LoadColumn(1)]
-        public required string function_pair { get; set; }
-
         [LoadColumn(5)]
         public float danceability_mean { get; set; }
 

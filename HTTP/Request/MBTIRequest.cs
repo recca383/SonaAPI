@@ -3,7 +3,6 @@
     public class MBTIRequest
     {
         public required string Mbti { get; set; }
-        public required string Function_pair { get; set; }
         public float Danceablitiy { get; set; }
         public float Liveliness { get; set; }
         public float Valance { get; set; }
