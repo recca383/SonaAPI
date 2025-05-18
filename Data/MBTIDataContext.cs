@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SonaAPI.Models;
 
 namespace SonaAPI.Data
 {
@@ -8,5 +9,11 @@ namespace SonaAPI.Data
         {
         }
 
+        public DbSet<MBTIFromDataSet> MBTIDataset { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MBTIFromDataSet>().ToTable("MBTI_DataSet");
+        }
     }
 }

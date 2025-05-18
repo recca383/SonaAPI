@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SonaAPI.Models;
+using SonaAPI.HTTP.Request;
 using SonaAPI.Repository;
 using SonaAPI.Repository.Contracts;
 
@@ -21,7 +21,7 @@ namespace SonaAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> GetPlaylist([FromBody]MBTI mbti)
+        public async Task<IActionResult> GetPlaylist([FromBody]MBTIRequest mbti)
         {
             var playlistID = await mbtiRepository.GetPlaylistID(mbti);
 

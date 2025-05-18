@@ -1,6 +1,6 @@
-﻿namespace SonaAPI.Models
+﻿namespace SonaAPI.HTTP.Request
 {
-    public class MBTI
+    public class MBTIRequest
     {
         public required string Mbti { get; set; }
         public required string Function_pair { get; set; }
