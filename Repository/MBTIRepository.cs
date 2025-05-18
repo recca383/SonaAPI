@@ -40,7 +40,7 @@ namespace SonaAPI.Repository
                 .Append(context.Transforms.Concatenate("Features"
                                                       , columns[1..]
                                                       ))
-                .Append(context.MulticlassClassification.Trainers.SdcaMaximumEntropy())
+                .Append(context.MulticlassClassification.Trainers.NaiveBayes())
                 .Append(context.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
 
             var model = pipeline.Fit(data);
