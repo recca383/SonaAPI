@@ -15,8 +15,10 @@ namespace SonaAPI.Repository
             var context = new MLContext();
             string filename = mbti.Mbti.Trim().ToUpper() +"_df.csv";
 
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Dataset", filename);
+
             var data = context.Data.LoadFromTextFile<MBTIColumns>
-                ($"Dataset/{filename}"
+                (filePath
                 , separatorChar: ','
                 , hasHeader: true);
 
