@@ -1,9 +1,9 @@
-﻿using SonaAPI.Models;
+﻿using SonaAPI.HTTP.Request;
 
 namespace SonaAPI.Repository.Contracts
 {
     public interface IMBTIContract
     {
-        Task<string> GetPlaylistID(MBTI mbti);
+        Task<string> GetPlaylistID(MBTIRequest mbti);
     }
 }

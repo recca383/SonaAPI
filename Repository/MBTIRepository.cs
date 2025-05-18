@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.ML;
+using SonaAPI.HTTP.Request;
 using SonaAPI.ML;
-using SonaAPI.Models;
 using SonaAPI.Repository.Contracts;
 using System.Data;
 using System.Linq.Expressions;
@@ -10,13 +10,14 @@ namespace SonaAPI.Repository
 {
     public class MBTIRepository : IMBTIContract
     {
-        public Task<string> GetPlaylistID(MBTI mbti)
+        public Task<string> GetPlaylistID(MBTIRequest mbti)
         {
             var context = new MLContext();
             string filename = mbti.Mbti.Trim().ToUpper() +"_df.csv";
 
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Dataset", filename);
 
+            
             var data = context.Data.LoadFromTextFile<MBTIColumns>
                 (filePath
                 , separatorChar: ','
