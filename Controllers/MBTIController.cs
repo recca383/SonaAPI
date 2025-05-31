@@ -29,10 +29,13 @@ namespace SonaAPI.Controllers
 
             var result = await spotifyRepository.GetPlaylist(playlistID, accessToken);
 
-            if (result != null)
-                return Ok(result);
+            if(result is null)
+                return NotFound();
 
-            return NotFound();
+
+            return Ok(result);
+
+            
         }
     }
 }
