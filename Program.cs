@@ -35,9 +35,13 @@ namespace SonaAPI
                 options.AddPolicy("AllowAllOrigins",
                     builder =>
                     {
-                        builder.AllowAnyOrigin()
-                               .AllowAnyMethod()
-                               .AllowAnyHeader();
+                        builder.WithOrigins(
+                            "https://sona-weiasnormals-projects.vercel.app",
+                            "https://sona-ten.vercel.app/mbti-selection"
+                            )
+                               .WithMethods("POST")
+                               .WithHeaders("Content-Type")
+                               .SetPreflightMaxAge(TimeSpan.FromMinutes(10));
                     });
             });
 
