@@ -53,14 +53,8 @@ namespace SonaAPI.Repository
             var response = await client
                                 .GetFromJsonAsync<SpotifyPlaylist>
                                     ($"https://api.spotify.com/v1/playlists/{playlistId}");
-            
-            return response!;
-           
-        }
 
-        public Task<Track> GetTrack(int track_number)
-        {
-            throw new NotImplementedException();
+            return response;
         }
     }
 }

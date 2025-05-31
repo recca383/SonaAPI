@@ -32,7 +32,7 @@ namespace SonaAPI
 
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOrigins",
+                options.AddPolicy("Production",
                     builder =>
                     {
                         builder.WithOrigins(
@@ -53,7 +53,7 @@ namespace SonaAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseCors("AllowAllOrigins");
+            app.UseCors("Production");
 
             app.UseHttpsRedirection();
 
