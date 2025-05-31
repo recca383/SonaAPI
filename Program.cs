@@ -32,12 +32,16 @@ namespace SonaAPI
 
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOrigins",
+                options.AddPolicy("Production",
                     builder =>
                     {
-                        builder.AllowAnyOrigin()
-                               .AllowAnyMethod()
-                               .AllowAnyHeader();
+                        builder.WithOrigins(
+                            "sona-weiasnormals-projects.vercel.app",
+                            "sona-ten.vercel.app"
+                            )
+                               .WithMethods("POST")
+                               .WithHeaders("Content-Type")
+                               .SetPreflightMaxAge(TimeSpan.FromMinutes(10));
                     });
             });
 
@@ -49,7 +53,7 @@ namespace SonaAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseCors("AllowAllOrigins");
+            app.UseCors("Production");
 
             app.UseHttpsRedirection();
 

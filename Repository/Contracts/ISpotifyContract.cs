@@ -7,6 +7,5 @@ namespace SonaAPI.Repository.Contracts
     {
         Task<string> GetAccessTokenAsync();
         Task<SpotifyPlaylist> GetPlaylist(string playlistId, string accessToken);
-        Task<Track> GetTrack(int track_number);
     }
 }
